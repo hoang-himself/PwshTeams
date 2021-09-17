@@ -1,3 +1,3 @@
-# Template repo
+# Helper functions for MSTeams
 
-For future generic repo
+I mainly use this for Microsoft 365 Education

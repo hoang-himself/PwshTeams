@@ -1,0 +1,4 @@
+﻿MailNickName,DisplayName,Description,TeamType,Owners,Members,ChannelNames,ChannelDescriptions
+TestTeam,Test Team,desc,EDU_Class,admin@Tenantname.com;helper@tenant.com,alexw@Tenantname.com,TestChannel;TestChanne2,ChannelDesc;ChannelDesc2
+TestTeam2,Test Team 2,desc1,EDU_Class,alexw@Tenantname.com,admin@Tenantname.com,TestChanne3,ChannelDesc1
+TestTeam3,Test Team 3,desc2,EDU_Class,alland@Tenantname.com,admin@Tenantname.com;AlexW@Tenantname.com;LeeG@Tenantname.com,TestChanne2,ChannelDesc3
