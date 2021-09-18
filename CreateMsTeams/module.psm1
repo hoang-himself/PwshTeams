@@ -1,4 +1,4 @@
-﻿Function New-TeamsFromCSV {
+﻿Function NewTeamsFromCSV {
   <#
     .SYNOPSIS
     Create MS Teams from CSV file.
@@ -7,7 +7,7 @@
     Using this script, you can create Mirosoft Teams by importing details from csv file and this function use the MicrosoftTeams PowerShell Module.
 
     .EXAMPLE
-    New-TeamsFromCSV -Path "C:\temp\TeamsDetails.CSV"
+    NewTeamsFromCSV -Path "C:\temp\TeamsDetails.CSV"
 
     Create Teams from CSV file.
 
@@ -107,7 +107,7 @@
   CreateNewTeam -ImportPath $Path
 }
 
-Function Export-ArchivedTeams {
+Function ExportArchivedTeams {
   <#
     .SYNOPSIS
     Export Archived Teams into CSV file.
@@ -116,7 +116,7 @@ Function Export-ArchivedTeams {
     Using this script, you can Export archived Mirosoft Teams into csv file and this function use the SharePointPnPPowerShellOnline Module.
 
     .EXAMPLE
-    Export-ArchivedTeams -ExportPath "C:\temp\ArchivedTeamsDetails.CSV"
+    ExportArchivedTeams -ExportPath "C:\temp\ArchivedTeamsDetails.CSV"
 
     Export Archived Teams into CSV file.
   #>
@@ -169,7 +169,7 @@ Function Export-ArchivedTeams {
   }
 }
 
-function Export-TeamsList {
+Function ExportTeamsList {
   <#
     .SYNOPSIS
     Export Microsoft Teams into CSV file.
@@ -178,7 +178,7 @@ function Export-TeamsList {
     Using this script, you can Export Mirosoft Teams into csv file and this function use the SharePointPnPPowerShellOnline Module.
 
     .EXAMPLE
-    Export-TeamsList -ExportPath "C:\temp\TeamsList.CSV"
+    ExportTeamsList -ExportPath "C:\temp\TeamsList.CSV"
 
     Export Microsoft Teams into CSV file.
   #>
@@ -339,11 +339,9 @@ Function ApplyTeamsPolicyFromCSV {
       }
     } | Select-Object userprincipalname, TeamsCallingPolicy, TeamsMeetingPolicy, TeamsMessagingPolicy, TeamsUpgradePolicy
   }
-
-
 }
 
-Function Export-TeamsPolicy {
+Function ExportTeamsPolicy {
   <#
     .SYNOPSIS
     Export Microsoft Teams policy from the user accounts into CSV file.
@@ -352,7 +350,7 @@ Function Export-TeamsPolicy {
     Using this script, you can Export Mirosoft Teams policy into csv file and this function use the SkypeOnlineConnector Module.
 
     .EXAMPLE
-    Export-TeamsPolicy -Path "C:\temp\TeamsPolicyDetails.CSV"
+    ExportTeamsPolicy -Path "C:\temp\TeamsPolicyDetails.CSV"
 
     Export Microsoft Teams policy from the user accounts into CSV file.
   #>

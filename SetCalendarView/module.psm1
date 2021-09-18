@@ -1,4 +1,4 @@
-Function Set-CalendarFromCSV {
+Function SetCalendarFromCSV {
   <#
     .SYNOPSIS
     Set calendar configuration of all user from a CSV.
@@ -7,21 +7,21 @@ Function Set-CalendarFromCSV {
     Using this script, you can edit the calendar view of all users defined in a CSV.
 
     .EXAMPLE
-    Set-CalendarFromCSV -Path "C:\temp\Users.CSV"
+    SetCalendarFromCSV -Path "C:\temp\Users.CSV"
 
     Create Teams from CSV file.
 
     Sample CSV file format
 
     ```
-    MailNickName
+    Username
     admin@Tenantname.com
     alexw@Tenantname.com
     alland@Tenantname.com
     ```
     or
     ```
-    MailNickName
+    Username
     admin
     alexw
     alland
@@ -38,16 +38,16 @@ Function Set-CalendarFromCSV {
   $cred = Get-Credential
   Connect-ExchangeOnline -Credential $cred
 
-  $users = Import-Csv -Path $ImportPath
+  $users = Import-Csv -Path $Path
   foreach ($user in $users) {
-    Set-MailboxCalendarConfiguration -Identity $user.MailNickName -FirstWeekOfYear FirstFullWeek `
+    Set-MailboxCalendarConfiguration -Identity $user.Username -FirstWeekOfYear FirstFullWeek `
       -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
       -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:55:00 `
       -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
   }
 }
 
-Function Set-CalendarAllUses {
+Function SetCalendarAllUsers {
   <#
     .SYNOPSIS
     Set calendar configuration of all user.
@@ -56,7 +56,7 @@ Function Set-CalendarAllUses {
     Using this script, you can edit the calendar view of all users.
 
     .EXAMPLE
-    Set-CalendarAllUsers
+    SetCalendarAllUsers
   #>
   Import-Module ExchangeOnlineManagement
   $cred = Get-Credential
