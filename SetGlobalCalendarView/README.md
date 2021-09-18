@@ -4,6 +4,8 @@
 
 Everything in this script is hardcoded
 
+Also, running this script takes a lot of time, so be patient
+
 ## Prerequisite
 
 ```powershell
