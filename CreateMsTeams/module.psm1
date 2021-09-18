@@ -59,7 +59,6 @@
       $Users, $GroupId, $CurrentUsername, $Role
     )
     Process {
-
       try {
         $teamusers = $Users -split ";"
         if ($teamusers) {

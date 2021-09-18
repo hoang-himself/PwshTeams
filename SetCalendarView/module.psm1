@@ -34,17 +34,26 @@ Function SetCalendarFromCSV {
     # Provide the CSV file path of the new Teams details.
     $Path
   )
-  Import-Module ExchangeOnlineManagement
-  $cred = Get-Credential
-  Connect-ExchangeOnline -Credential $cred
 
-  $users = Import-Csv -Path $Path
-  foreach ($user in $users) {
-    Set-MailboxCalendarConfiguration -Identity $user.Username -FirstWeekOfYear FirstFullWeek `
-      -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
-      -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:55:00 `
-      -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
+  function main {
+    param (
+      $ImportPath
+    )
+    Process {
+      Import-Module ExchangeOnlineManagement
+      $cred = Get-Credential
+      Connect-ExchangeOnline -Credential $cred
+      $users = Import-Csv -Path $ImportPath
+      foreach ($user in $users) {
+        Set-MailboxCalendarConfiguration -Identity $user.Username -FirstWeekOfYear FirstFullWeek `
+          -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
+          -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:40:00 `
+          -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
+      }
+    }
   }
+
+  main -ImportPath $Path
 }
 
 Function SetCalendarAllUsers {
@@ -54,6 +63,7 @@ Function SetCalendarAllUsers {
 
     .DESCRIPTION
     Using this script, you can edit the calendar view of all users.
+    This function is kept for reference only, please don't use this.
 
     .EXAMPLE
     SetCalendarAllUsers
@@ -61,10 +71,9 @@ Function SetCalendarAllUsers {
   Import-Module ExchangeOnlineManagement
   $cred = Get-Credential
   Connect-ExchangeOnline -Credential $cred
-
   Get-EXOMailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox |
   Set-MailboxCalendarConfiguration -FirstWeekOfYear FirstFullWeek `
     -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
-    -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:55:00 `
+    -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:40:00 `
     -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
 }
