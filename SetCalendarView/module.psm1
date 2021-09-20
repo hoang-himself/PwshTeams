@@ -48,7 +48,7 @@ Function SetCalendarFromCSV {
         Set-MailboxCalendarConfiguration -Identity $user.Username -FirstWeekOfYear FirstFullWeek `
           -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
           -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:40:00 `
-          -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
+          -DefaultReminderTime 00:05:00 -WorkingHoursTimeZone "SE Asia Standard Time"
       }
     }
   }
@@ -75,5 +75,5 @@ Function SetCalendarAllUsers {
   Set-MailboxCalendarConfiguration -FirstWeekOfYear FirstFullWeek `
     -ShowWeekNumbers $true -WeekStartDay "Monday" -WorkDays "Weekdays,Saturday" `
     -WorkingHoursStartTime 06:45:00 -WorkingHoursEndTime 16:40:00 `
-    -DefaultReminderTime 00:10:00 -WorkingHoursTimeZone "SE Asia Standard Time"
+    -DefaultReminderTime 00:05:00 -WorkingHoursTimeZone "SE Asia Standard Time"
 }

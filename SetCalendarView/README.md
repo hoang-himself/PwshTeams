@@ -13,6 +13,10 @@ Set-ExecutionPolicy RemoteSigned
 Install-Module -Name ExchangeOnlineManagement
 ```
 
+## Troubleshooting
+
+If you get `New-ExoPSSession: Index was out of range`, run `Disconnect-ExchangeOnline -Confirm:$false`
+
 ## Credits
 
 [A. Wadstrom](https://serverfault.com/a/842973)
